@@ -1,0 +1,25 @@
+﻿@model SimpleTestLogin.Models.User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Login Failed. Check User Credentials.")
+    <div>
+        <fieldset>
+            <legend>Login Form</legend>
+            <div>@Html.LabelFor(u=>u.Username)</div>
+            <div>@Html.TextBoxFor(u=>u.Username)</div>
+            <div>@Html.ValidationMessageFor(u=>u.Username)</div>
+
+            <div>@Html.LabelFor(u=>u.Password)</div>
+            <div>@Html.PasswordFor(u=>u.Password)</div>
+            <div>@Html.ValidationMessageFor(u=>u.Password)</div>
+            <input type="submit" value="Log in" />
+        </fieldset>
+    </div>
+}

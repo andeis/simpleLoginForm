@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div>
+        @if (Request.IsAuthenticated)
+        {
+            <div style="width:auto;background-color:lightgray">
+                <h2>Logget inn</h2>
+                <strong>Velkommen @Html.Encode(User.Identity.Name)</strong>
+                @Html.ActionLink("Log Out", "Logout", "User")
+            </div>
+        }
+        else
+        {
+            <div style="width:auto;background-color:lightgoldenrodyellow">
+                <strong>Du er ikke logget inn</strong>
+                <span> | </span>
+                @Html.ActionLink("Log In", "Login", "User")
+                <span> | </span>
+                @Html.ActionLink("Registrer", "Registration", "User")
+            </div>
+        }
+    </div>
+
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

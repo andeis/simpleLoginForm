@@ -1,0 +1,23 @@
+﻿@model SimpleTestLogin.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TestPageNoLayout</title>
+</head>
+<body>
+    @if (Request.IsAuthenticated)
+    {
+        <h1>Display some text here</h1>
+    }
+    else
+    {
+        <h1>Vennligst @Html.ActionLink("Log In", "Login", "User")</h1>    
+    }
+</body>
+</html>

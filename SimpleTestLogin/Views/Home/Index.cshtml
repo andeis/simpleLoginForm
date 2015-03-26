@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Index";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Request.IsAuthenticated)
+{
+    <h1>Velkommen til Index</h1>
+    @Html.ActionLink("Log Out", "Logout", "User")
+    <span> | </span>
+    @Html.ActionLink("Test neste side", "TestPageNoLayout", "User")
+}
+else
+{
+    <h1>Venligst logg inn</h1>
+    @Html.ActionLink("Log In", "Login", "User")
+}
